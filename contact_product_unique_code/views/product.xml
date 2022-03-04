@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_inherit_form" model="ir.ui.view">
+        <field name="name">product.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='removal_strategy_id']" position="after">
+                <field name="assign_sequence"/>
+                <field name="sequence_id" attrs="{'invisible': [('assign_sequence', '!=', True)], 'required': [('assign_sequence', '!=', True)]}" force_save="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
