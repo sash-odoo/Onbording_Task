@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_inherit_form" model="ir.ui.view">
+        <field name="name">res.partner.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                <page name='inventory' string="Inventory">
+                         <field name="inventory_order_ids" widget='section_and_note_one2many' editable="true">
+                             <tree editable="true">
+                                 <field name="product_id"/>
+                                 <field name="default_uom_id"/>
+                                 <field name="uom_category_id"/>
+                             </tree>
+                         </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
